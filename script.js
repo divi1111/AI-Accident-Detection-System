@@ -100,7 +100,7 @@ if (table) {
 // =========================
 async function checkBackend() {
     try {
-        const response = await fetch("http://localhost:8000/", {
+        const response = await fetch("https://ai-accident-detection-system-1.onrender.com/",{
             method: "GET",
             headers: {
                 "Accept": "application/json"
@@ -145,7 +145,7 @@ async function uploadVideo() {
 
     try {
         const response = await fetch(
-            "http://localhost:8000/api/upload-video",
+            "https://ai-accident-detection-system-1.onrender.com/api/upload-video",
             {
                 method: "POST",
                 body: formData
