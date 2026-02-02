@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from database import init_database
 from routes import router
+import os
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -52,12 +53,13 @@ async def root():
 # Run server
 if __name__ == "__main__":
     print("🚀 Starting AI Accident Detection System Backend...")
-    print("📍 Server will run on: http://localhost:8000")
-    print("📚 API Documentation: http://localhost:8000/docs")
+    print("📍 Server started")
+    print("📚 API Documentation available at /docs")
+
     
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True  # Auto-reload on code changes (disable in production)
+        port=int(os.environ.get("PORT", 8000)),
+        reload=False  # Auto-reload on code changes (disable in production)
     )
